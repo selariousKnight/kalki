@@ -1,20 +1,14 @@
 import './App.css';
-import { useState , useEffect} from 'react';
+import { useReducer} from 'react';
 
 function App() {
   
-  let [count,countFunc] = useState(0);
+  let [checked,countFunc] = useReducer(checked=> !checked ,false );
 
-  useEffect(()=>{
-   
-    console.log(`Here is the count ${count}`);
-
-  },[count]);
   return (
     <div className='App'>
-    <h1>Count is as of now is {count}</h1>
-    <button onClick={()=> countFunc(count+1)}>Increase Count</button>
-    <button onClick={()=> countFunc(count-1)}>Decrease Count</button>
+     <input type = "checkbox" value = {checked} onChange = {countFunc}/>
+     <label>{checked ? "Checked" : "Not Checked"}</label>
     </div>
   );
  
