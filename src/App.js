@@ -7,7 +7,7 @@ function App() {
 
   useEffect(()=>{
    
-    
+    console.log(`Here is the count ${count}`);
 
   },[count]);
   return (
