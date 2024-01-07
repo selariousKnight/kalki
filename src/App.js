@@ -39,7 +39,7 @@ function App() {
 
   return (
    
-    <GiveListData data = {dataObj} emptyData = {<p>No Data Found</p>} renderData = {(item)=> <>{item.name} - {item.age}</> }/>
+    <GiveListData data = {dataObj} emptyData = {<p>No Data Found</p>} renderData = {(item)=> <>{item.name} - {item.age} </>}/>
     
   );
  
