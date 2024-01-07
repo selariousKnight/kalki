@@ -1,29 +1,46 @@
+import React from 'react';
 import './App.css';
-import { useState , useEffect } from 'react';
 
-function User({name}){
 
-    return <h1>{name}</h1>
-  
+
+function GiveListData( {data, emptyData , renderData}){
+
+
+  return !data ? emptyData : (data.map((ele)=> <ul key = {ele.name}><li>{renderData(ele)}</li></ul>));
+
 }
 
+let dataObj = [
+  {
+    name : "Pavan",
+    age : "21"
+  },
+  {
+    name : "kalyan",
+    age : "21"
+  },
+  {
+    name : "Random",
+    age : "21"
+  },
+  {
+    name : "Movments",
+    age : "21"
+  },
+  {
+    name : "Regaltos",
+    age : "21"
+  },
+
+]
 
 function App() {
-  let [data , fetchData] = useState(null);
 
-  useEffect(()=>{
-
-    fetch(`https://ap.github.com/users/moonhighway`).then((response)=> response.json()).then(fetchData);
-
-
-  },[data]);
-
-  if (data){
-    return <User name = {data.name}/>
-  }
 
   return (
-    <h1>Data</h1>
+   
+    <GiveListData data = {dataObj} emptyData = {<p>No Data Found</p>} renderData = {(item)=> <>{item.name} - {item.age}</> }/>
+    
   );
  
 }
