@@ -1,15 +1,29 @@
 import './App.css';
-import { useReducer} from 'react';
+import { useState , useEffect } from 'react';
+
+function User({name}){
+
+    return <h1>{name}</h1>
+  
+}
+
 
 function App() {
-  
-  let [checked,countFunc] = useReducer(checked=> !checked ,false );
+  let [data , fetchData] = useState(null);
+
+  useEffect(()=>{
+
+    fetch(`https://ap.github.com/users/moonhighway`).then((response)=> response.json()).then(fetchData);
+
+
+  },[data]);
+
+  if (data){
+    return <User name = {data.name}/>
+  }
 
   return (
-    <div className='App'>
-     <input type = "checkbox" value = {checked} onChange = {countFunc}/>
-     <label>{checked ? "Checked" : "Not Checked"}</label>
-    </div>
+    <h1>Data</h1>
   );
  
 }
