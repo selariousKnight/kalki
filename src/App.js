@@ -1,48 +1,30 @@
 import React from 'react';
 import './App.css';
 
-
-
-function GiveListData( {data, emptyData , renderData}){
-
-
-  return !data ? emptyData : (data.map((ele)=> <ul key = {ele.name}><li>{renderData(ele)}</li></ul>));
-
+export function About(){
+  return (<div>
+    <h1>This is about Page</h1>
+  </div>)
 }
 
-let dataObj = [
-  {
-    name : "Pavan",
-    age : "21"
-  },
-  {
-    name : "kalyan",
-    age : "21"
-  },
-  {
-    name : "Random",
-    age : "21"
-  },
-  {
-    name : "Movments",
-    age : "21"
-  },
-  {
-    name : "Regaltos",
-    age : "21"
-  },
+export function Page(){
+  return(
 
-]
+    <div>
+      <h1>This is Another Page</h1>
+    </div>
+  )
+}
 
-function App() {
+export function App() {
 
 
   return (
    
-    <GiveListData data = {dataObj} emptyData = {<p>No Data Found</p>} renderData = {(item)=> <>{item.name} - {item.age} </>}/>
+   <div>
+    <h1>This is Home Page</h1>
+   </div>
     
   );
  
 }
-
-export default App;
